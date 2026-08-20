@@ -1,0 +1,19 @@
+{
+  "site": {"name":"GAME_NAME Wiki","shortName":"GAME","description":"GAME_NAME Wiki with practical guides, strategy references, and essential information for players.","tagline":"Practical guides for every player.","legalNotice":"Fan-made community resource."},
+  "nav": {"home":"Home","guides":"Guides","toggleTheme":"Toggle theme","menu":"Menu","close":"Close","search":"Search","language":"Language"},
+  "search": {"placeholder":"Search the GAME_NAME Wiki...","noResults":"No matching guides found","open":"Open search"},
+  "shared": {"readMore":"Read guide","lastUpdated":"Last updated","publishedOn":"Published","noArticles":"No guides available yet.","relatedArticles":"Related guides","onThisPage":"On this page","backToCategory":"Back to guides","browseAll":"Browse all guides","viewAll":"Explore the wiki","commentsHeading":"Comments"},
+  "overview": {"guides":{"overviewTitle":"GAME_NAME Guides","overviewDescription":"Practical GAME_NAME guides covering mechanics, strategies, tips and updates."}},
+  "home": {
+    "meta":{"title":"GAME_NAME Wiki — Guides & Strategies","description":"GAME_NAME Wiki with practical guides, strategy references, and essential information for players."},
+    "hero":{"badge":"Fan-made community wiki","title":"GAME_NAME","description":"Practical guides and references for every player.","ctaPrimary":"Browse all guides","ctaPrimaryHref":"/guides","ctaSecondary":"Read the latest guide","ctaSecondaryHref":"/guides"},
+    "updates":{"title":"Latest GAME_NAME guides"},
+    "start":{"badge":"Start here","title":"Build your guide library","cards":[{"number":"1","title":"Beginner guide","description":"Start with the core mechanics and first steps.","icon":"lucide:book-open","href":"/guides"},{"number":"2","title":"Strategy guide","description":"Add your first focused strategy article.","icon":"lucide:target","href":"/guides"},{"number":"3","title":"Reference guide","description":"Collect important systems, items or characters.","icon":"lucide:library","href":"/guides"},{"number":"4","title":"FAQ","description":"Answer the questions players ask most.","icon":"lucide:circle-help","href":"/faq"}]},
+    "popular":{"badge":"Core topics","title":"Popular guides","quickLinks":[{"label":"Browse all guides","href":"/guides"},{"label":"FAQ","href":"/faq"}]},
+    "explore":{"title":"GAME_NAME wiki essentials","description":"Keep the homepage focused on routes that exist in the content layer.","modules":[{"order":1,"name":"GAME_NAME guides","description":"Your main content directory.","href":"/guides","displayType":"labeled-cards","highlights":[{"label":"Beginner","detail":"Explain the first useful steps."},{"label":"Strategy","detail":"Add practical decision support."}]}]},
+    "closingCta":{"title":"Ready to build your wiki?","description":"Start with one useful guide, then add categories as real content arrives.","primary":"Browse the guide directory"},
+    "faq":{"title":"GAME_NAME FAQ","description":"Add concise answers to the questions your players ask most.","items":[{"question":"What should this wiki cover?","answer":"Use this page for concise, verified answers that link to full guides when more detail is needed."}]},
+    "gameStats":[{"label":"Developer","value":"Developer","icon":"lucide:building-2"},{"label":"Platform","value":"Platform","icon":"lucide:monitor"},{"label":"Release","value":"Release date","icon":"lucide:calendar-days"},{"label":"Genre","value":"Genre","icon":"lucide:gamepad-2"}]
+  },
+  "footer":{"playGame":"Official website","about":"About","faq":"FAQ","privacyPolicy":"Privacy Policy","termsOfService":"Terms of Service","copyrightText":"© 2026 GAME_NAME Wiki. Fan-made community resource."}
+}
