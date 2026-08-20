@@ -34,7 +34,9 @@ export async function getStaticPaths() {
   const nonDefaultLocales = locales.filter((l) => l !== defaultLocale);
 
   for (const locale of nonDefaultLocales) {
-    paths.push({ params: { locale, slug: 'guides' } });
+    for (const contentType of CONTENT_TYPES) {
+      paths.push({ params: { locale, slug: contentType } });
+    }
 
     // Article paths from this locale's own MDX.
     for (const entry of all) {
@@ -83,8 +85,8 @@ let resolved: ResolvedEntry | null = null;
 
 let articleSlug = '';
 
-if (parts.length === 1 && parts[0] === 'guides') {
-  category = 'guides';
+if (parts.length === 1 && CONTENT_TYPES.includes(parts[0])) {
+  category = parts[0];
   view = 'list';
 } else if (parts.length === 1) {
   category = 'guides';

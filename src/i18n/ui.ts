@@ -1,9 +1,15 @@
 import en from '~/locales/en.json';
+import de from '~/locales/de.json';
+import ja from '~/locales/ja.json';
+import ko from '~/locales/ko.json';
 
 import { defaultLocale, type Locale } from './routing';
 
 const messages: Record<Locale, Record<string, unknown>> = {
   en: en as Record<string, unknown>,
+  de: de as Record<string, unknown>,
+  ja: ja as Record<string, unknown>,
+  ko: ko as Record<string, unknown>,
 };
 
 function deepMerge(

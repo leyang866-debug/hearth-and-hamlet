@@ -26,7 +26,9 @@ export async function getStaticPaths() {
 
   const paths: Array<{ params: { slug: string } }> = [];
 
-  paths.push({ params: { slug: 'guides' } });
+  for (const contentType of CONTENT_TYPES) {
+    paths.push({ params: { slug: contentType } });
+  }
 
   // Guide collection entries use short public keyword URLs.
   for (const entry of all) {
@@ -54,8 +56,8 @@ let category = '';
 let articleSlug = '';
 let resolved: ResolvedEntry | null = null;
 
-if (parts.length === 1 && parts[0] === 'guides') {
-  category = 'guides';
+if (parts.length === 1 && CONTENT_TYPES.includes(parts[0])) {
+  category = parts[0];
   view = 'list';
 } else if (parts.length === 1) {
   articleSlug = parts[0];

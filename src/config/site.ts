@@ -30,24 +30,28 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: 'GAME_NAME Wiki',
-  shortName: 'GAME',
-  description: 'GAME_NAME Wiki with practical guides, strategy references, and essential information for players.',
-  domain: 'example.com',
-  tagline: 'Practical guides for every player.',
-  legalNotice: 'GAME_NAME Wiki is a fan-made community resource and is not affiliated with the game developers or publishers.',
-  social: {},
+  name: 'Hearth and Hamlet Wiki',
+  shortName: 'Hearth & Hamlet',
+  description: 'Hearth and Hamlet Wiki with beginner guides, buildings, research, magic, resources, policies, trade, and kingdom-building tips for the medieval pixel citybuilder.',
+  domain: 'hearthhamlet.site',
+  tagline: 'Build a frontier kingdom one thoughtful choice at a time.',
+  legalNotice: 'Hearth and Hamlet Wiki is an independent fan-made resource and is not affiliated with Phorust Studios, Runic Forge, or Gamersky Games.',
+  social: {
+    official: 'https://store.steampowered.com/app/4315040/Hearth_and_Hamlet/',
+    discord: 'https://discord.gg/yhGSE3nE',
+    youtube: 'https://www.youtube.com/watch?v=OidnO9knPR8',
+  },
   game: {
-    name: 'GAME_NAME',
-    platform: 'Platform',
-    developer: 'Developer',
-    publisher: 'Publisher',
-    genre: 'Genre',
-    releaseDate: '',
+    name: 'Hearth and Hamlet',
+    platform: 'PC / Steam',
+    developer: 'Phorust Studios',
+    publisher: 'Runic Forge / Gamersky Games',
+    genre: 'City Builder / Incremental / Strategy',
+    releaseDate: 'August 19, 2026',
   },
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  defaultAuthor: 'GAME_NAME Wiki Team',
+  defaultAuthor: 'Hearth and Hamlet Wiki Team',
 };
 
 /** Absolute site URL (no trailing slash). Set by deployment or defaults to placeholder. */
