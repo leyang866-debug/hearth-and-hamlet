@@ -36,6 +36,17 @@ export default defineConfig({
         defaultLocale,
         locales: Object.fromEntries(locales.map((l) => [l, l])),
       },
+      // Localized article routes may intentionally serve an English fallback
+      // for shared links. Keep those pages reachable, but do not advertise
+      // fallback copies as indexable sitemap entries until a translation
+      // exists for that locale.
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        if (!/^\/(de|ja|ko)\//.test(path)) return true;
+        const segments = path.split('/').filter(Boolean);
+        const publicSections = new Set(['guides', 'buildings', 'updates', 'faq', 'about', 'privacy-policy', 'terms-of-service', 'copyright', 'contact']);
+        return segments.length === 1 || (segments.length === 2 && publicSections.has(segments[1]));
+      },
     }),
     tailwind({ applyBaseStyles: false }),
     icon(),

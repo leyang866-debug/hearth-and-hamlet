@@ -12,7 +12,7 @@ import ListPage from '~/components/article/ListPage.astro';
 import ArticlePage from '~/components/article/ArticlePage.astro';
 import { CONTENT_TYPES } from '~/config/navigation';
 import { defaultLocale, locales, type Locale } from '~/i18n/routing';
-import { getEntryWithFallback, parseEntryId, type ResolvedEntry } from '~/lib/content';
+import { getEntryWithFallback, localesForEntry, parseEntryId, type ResolvedEntry } from '~/lib/content';
 import { detailPath, languageAlternates, listPath } from '~/lib/url';
 
 export async function getStaticPaths() {
@@ -77,9 +77,10 @@ if (view === 'not-found') {
   return new Response('Not Found', { status: 404 });
 }
 
+const alternateLocales = view === 'list' ? locales : await localesForEntry(category, articleSlug);
 const alternates = languageAlternates(
   (loc) => (view === 'list' ? listPath(category, loc) : detailPath(category, articleSlug, loc)),
-  locales,
+  alternateLocales,
 );
 ---
 

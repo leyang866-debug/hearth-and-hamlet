@@ -33,8 +33,9 @@ interface Props {
   resolved: ResolvedEntry;
   /** hreflang alternates (built by the route page). */
   alternates?: Array<{ hreflang: string; href: string }>;
+  noindex?: boolean;
 }
-const { locale, resolved, alternates = [] } = Astro.props;
+const { locale, resolved, alternates = [], noindex = false } = Astro.props;
 const { entry, servedLocale, isFallback } = resolved;
 const ui = getUi(locale);
 const nav = ui.nav as Record<string, string>;
@@ -86,7 +87,7 @@ const jsonLd = [
   alternates={alternates}
   article={true}
   jsonLd={jsonLd}
-  noindex={entry.data.noindex}
+  noindex={entry.data.noindex || noindex}
 >
   <div class="flex gap-8">
     <article class="mx-auto min-w-0 max-w-3xl flex-1">
