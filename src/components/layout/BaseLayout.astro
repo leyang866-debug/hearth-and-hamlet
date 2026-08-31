@@ -21,6 +21,8 @@ interface Props {
   locale: string;
   /** Per-page alternates for hreflang. */
   alternates?: Array<{ hreflang: string; href: string }>;
+  /** Canonical URL override, used when a localized route serves an English fallback. */
+  canonical?: string;
   /** og:image override (absolute URL). Defaults to header.jpg. */
   image?: string;
   /** Optional extra JSON-LD objects to inject (WebSite, Article, etc.). */
@@ -42,6 +44,7 @@ const {
   description,
   locale,
   alternates = [],
+  canonical,
   image = `${siteUrl}/header.jpg`,
   jsonLd = [],
   article = false,
@@ -75,7 +78,7 @@ const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefine
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+    <link rel="canonical" href={canonical ?? new URL(Astro.url.pathname, siteUrl).href} />
 
     {/* hreflang alternates */}
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}

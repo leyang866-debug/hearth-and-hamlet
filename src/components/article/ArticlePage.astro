@@ -47,6 +47,9 @@ const parsed = parseEntryId(entry.id);
 const slug = parsed?.slug ?? '';
 const category = entry.data.category;
 const categoryLabel = overview?.overviewTitle ?? nav[category] ?? category;
+const canonical = isFallback && servedLocale !== locale
+  ? `${siteUrl}${detailPath(category, slug, servedLocale)}`
+  : undefined;
 
 const coverUrl = `${siteUrl}${entry.data.image}`;
 
@@ -85,6 +88,7 @@ const jsonLd = [
   description={entry.data.description}
   image={coverUrl}
   alternates={alternates}
+  canonical={canonical}
   article={true}
   jsonLd={jsonLd}
   noindex={entry.data.noindex || noindex}
