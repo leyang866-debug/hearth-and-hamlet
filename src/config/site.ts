@@ -58,7 +58,7 @@ export const site: SiteConfig = {
 export const siteUrl: string = `https://${site.domain}`;
 
 /** GA4 measurement ID — set by deployment tool. Placeholder for template use. */
-export const ga4MeasurementId = '';
+export const ga4MeasurementId = 'G-36Z88PZERH';
 
 /** Google Search Console verification string — set by deployment tool. */
 export const googleSiteVerification = '';
