@@ -23,6 +23,8 @@ interface Props {
   alternates?: Array<{ hreflang: string; href: string }>;
   /** Canonical URL override, used when a localized route serves an English fallback. */
   canonical?: string;
+  /** Optional critical image to preload before first paint. */
+  preloadImage?: string;
   /** og:image override (absolute URL). Defaults to header.jpg. */
   image?: string;
   /** Optional extra JSON-LD objects to inject (WebSite, Article, etc.). */
@@ -45,6 +47,7 @@ const {
   locale,
   alternates = [],
   canonical,
+  preloadImage,
   image = `${siteUrl}/header.jpg`,
   jsonLd = [],
   article = false,
@@ -73,6 +76,7 @@ const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefine
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <meta name="generator" content={Astro.generator} />
 
     <title>{fullTitle}</title>
@@ -113,16 +117,26 @@ const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefine
 
     {/* Google Analytics (optional, env-var gated) */}
     {gaId && (
-      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
-    )}
-    {gaId && (
       <script is:inline define:vars={{ gaId }}>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
           dataLayer.push(arguments);
         }
-        gtag('js', new Date());
-        gtag('config', gaId);
+        const loadAnalytics = () => {
+          if (document.querySelector(`script[data-ga4="${gaId}"]`)) return;
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+          script.dataset.ga4 = gaId;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', gaId);
+        };
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+        } else {
+          window.setTimeout(loadAnalytics, 2000);
+        }
       </script>
     )}
 
