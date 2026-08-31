@@ -17,6 +17,7 @@ import { render } from 'astro:content';
 import LocaleLayout from '~/components/layout/LocaleLayout.astro';
 import InContentAd from '~/components/ads/InContentAd.astro';
 import Comments from '~/components/article/Comments.astro';
+import ArticleCover from '~/components/article/ArticleCover.astro';
 import TableOfContents from '~/components/article/TableOfContents.astro';
 import WikiSidebar from '~/components/sidebar/WikiSidebar.astro';
 import { NAVIGATION_CONFIG } from '~/config/navigation';
@@ -104,6 +105,11 @@ const jsonLd = [
 
     {/* Header */}
     <header class="mt-3" data-pagefind-meta={`category:${category}`}>
+      <ArticleCover
+        src={entry.data.image}
+        alt={entry.data.title}
+        class="mb-6 aspect-video w-full rounded-md object-cover"
+      />
       <div class="flex items-center gap-2">
         {navItem && <Icon name={navItem.icon} class="h-5 w-5 text-nav" />}
         <span class="text-sm font-medium uppercase tracking-wider text-foreground">{categoryLabel}</span>

@@ -1,17 +1,23 @@
 ---
-title: Hearth and Hamlet Saved Files
-description: Learn how to find Hearth and Hamlet saved files safely, back up before troubleshooting, and avoid unsupported paths when the exact location is unconfirmed.
+title: Hearth and Hamlet Save Location & Files
+description: Find the Hearth and Hamlet save location on Windows, understand the Godot save folder and .save files, and back up safely before editing or troubleshooting.
 category: guides
 date: 2026-08-20
 lastModified: 2026-08-20
-image: /images/workers.jpg
+image: /images/settlement.jpg
 tags: [save files, backup, troubleshooting]
-summary: The supplied sources do not confirm an exact save-file path. Use Steam and your local user-data folders carefully, and make a backup before changing any files.
+summary: On Windows, SteamDB lists the Godot app-data folder for Hearth and Hamlet saves. Back up the folder before editing or deleting any .save file.
 ---
 
-## Save location status
+## Windows save location
 
-The supplied research does not confirm an exact Hearth and Hamlet save-file path. Publishing a guessed folder would risk directing players to the wrong files, so this guide focuses on a safe discovery process.
+SteamDB's User File System listing identifies this Godot app-data folder for the Windows installation:
+
+```text
+%APPDATA%\Godot\app_userdata\Hearth and Hamlet
+```
+
+Save files use the `.save` extension. Paste `%APPDATA%` into File Explorer or the Win + R dialog instead of publishing your personal Windows username.
 
 ## Safe backup process
 
@@ -28,7 +34,7 @@ Steam Cloud may synchronize files after launch, so a local change can be overwri
 
 ### Where are Hearth and Hamlet saves stored?
 
-The exact path is not confirmed in the available sources.
+The listed Windows location is `%APPDATA%\Godot\app_userdata\Hearth and Hamlet`. Confirm the folder exists on your installation before changing anything.
 
 ### Should I edit my save file?
 
@@ -41,3 +47,4 @@ Cloud synchronization can replace local data. Keep a separate copy outside the a
 ## Sources
 
 - [Steam store page](https://store.steampowered.com/app/4315040/Hearth_and_Hamlet/) - official product listing.
+- [SteamDB User File System](https://steamdb.info/app/4315040/ufs/) - listed save-folder and file-pattern data.
