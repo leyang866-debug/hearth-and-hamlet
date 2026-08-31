@@ -1,2 +1,0 @@
-# Astro emits directory index files, so normalize the alternate trailing-slash URL.
-/*/ /:splat 301
